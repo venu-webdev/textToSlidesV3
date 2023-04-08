@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Telugu:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- screen-script -->
+    <script defer>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+        
+        function plusSlides(n) {
+          showSlides(slideIndex += n);
+        }
+        
+        function currentSlide(n) {
+          showSlides(slideIndex = n);
+        }
+        
+        function showSlides(n) {
+          let i;
+          let slides = document.getElementsByClassName("mySlides");
+          if (n > slides.length) {slideIndex = 1}    
+          if (n < 1) {slideIndex = slides.length}
+          for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";  
+          }
+          slides[slideIndex-1].style.display = "flex";  
+          dots[slideIndex-1].className += " active";
+        }
+        </script>
+    <title>TextToSlides</title>
+</head>
+<body>
+    <div id="main-container">
+        <div id="left-container">
+            <div id="lyrics-top">
+                <h2 id="lyrics-header" class="content-header">ENTER LYRICS</h2>
+                <button id="add-pallavi">
+                    <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12.7812 8.59375V9.09375H13.2812H20.3125C20.8992 9.09375 21.375 9.5696 21.375 10.1562V11.7188C21.375 12.3054 20.8992 12.7812 20.3125 12.7812H13.2812H12.7812V13.2812V20.3125C12.7812 20.8992 12.3054 21.375 11.7188 21.375H10.1562C9.5696 21.375 9.09375 20.8992 9.09375 20.3125V13.2812V12.7812H8.59375H1.5625C0.975849 12.7812 0.5 12.3054 0.5 11.7188V10.1562C0.5 9.5696 0.975849 9.09375 1.5625 9.09375H8.59375H9.09375V8.59375V1.5625C9.09375 0.975849 9.5696 0.5 10.1562 0.5H11.7188C12.3054 0.5 12.7812 0.975849 12.7812 1.5625V8.59375Z" fill="white" stroke="#009142"/>
+                        </svg>
+                    <p>Pallavi</p>
+                    </button>
+                <div id="pallavi-input-box" class="hidden">
+                    <input type="text" id="pallavi-input">
+                    <button id="pallavi-set"><img src="" alt=""></button>
+                </div>
+            </div>
+            <div id="lyrics-content">
+                <div id="copy-icon"><svg width="40" height="40" viewBox="0 0 60 61" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="59.6593" height="61" rx="5" fill="#515151"/>
+                    <path d="M37.0596 44.3256V47.2059C37.0596 48.1603 36.2879 48.9341 35.3359 48.9341H15.8006C14.8486 48.9341 14.0769 48.1603 14.0769 47.2059V20.7069C14.0769 19.7524 14.8486 18.9787 15.8006 18.9787H20.9717V40.2931C20.9717 42.5166 22.7759 44.3256 24.9937 44.3256H37.0596ZM37.0596 19.5548V12.0659H24.9937C24.0417 12.0659 23.27 12.8397 23.27 13.7941V40.2931C23.27 41.2476 24.0417 42.0213 24.9937 42.0213H44.529C45.481 42.0213 46.2527 41.2476 46.2527 40.2931V21.283H38.7833C37.8353 21.283 37.0596 20.5053 37.0596 19.5548ZM45.7479 17.3204L41.0119 12.5721C40.6886 12.248 40.2502 12.0659 39.7931 12.0659H39.3579V18.9787H46.2527V18.5424C46.2527 18.0841 46.0711 17.6445 45.7479 17.3204Z" fill="#CBCBCB"/>
+                    </svg></div>
+                    
+                <textarea id="lyrics-input" contenteditable="true"></textarea>
+                <button id="lyrics-play">
+                    <svg width="60" height="60" viewBox="0 0 105 105" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="52.5" cy="52.5" r="52.5" fill="#009142" fill-opacity="0.5"/>
+                        <circle cx="52.5" cy="52.5" r="52" stroke="white" stroke-opacity="0.25"/>
+                        <path d="M74.9466 48.8665L44.3029 30.5772C41.8131 29.0919 38 30.5333 38 34.207V70.7768C38 74.0725 41.5432 76.0588 44.3029 74.4065L74.9466 56.126C77.6801 54.5001 77.6888 50.4924 74.9466 48.8665Z" fill="white" fill-opacity="0.5"/>
+                        </svg>
+                        
+                </button>
+            </div>
+        </div>
+        <div id="right-container">
+            <div id="settings-top" ><h2 class="content-header">SETTINGS</h2></div>
+            <div id="settings-content">
+                <div id="text-properties">
+                    <span class="options-header">Text</span>
+                    <div class="input-value-box">
+                        <div class="input-value-name input-font-size">Size</div>
+                        <input type="text" class="input-value-value" id="text-size">
+                    </div>
+                    <div class="input-value-box">
+                        <div class="input-value-name input-font-weight">Weight</div>
+                        <input type="text" class="input-value-value" id="text-weight">
+                    </div>
+                    <div class="input-value-box">
+                        <div class="input-value-name input-text-color">Color</div>
+                        <input type="text" class="input-value-value" id="text-color">
+                    </div>
+                    <div class="input-value-box">
+                        <div class="input-value-name input-font-name">Font</div>
+                        <input type="text" class="input-value-value" id="font-family">
+                    </div>
+                    <button class="input-value-submit text-properties-submit">
+                        <svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.9184 1.93174L6.49473 16.0317L0.800537 9.56924L2.26032 7.91249L6.49473 12.7065L17.4586 0.274994L18.9184 1.93174Z" fill="white" fill-opacity="1"/>
+                            </svg>
+                            
+                    </button>
+                </div>
+                <div id="text-shadow">
+                    <span class="options-header">Text Shadow</span>
+                    <div class="input-value-box">
+                        <div class="input-value-name input-x">X</div>
+                        <input type="text" class="input-value-value" >
+                    </div>
+                    <div class="input-value-box">
+                        <div class="input-value-name input-y">Y</div>
+                        <input type="text" class="input-value-value">
+                    </div>
+                    <div class="input-value-box">
+                        <div class="input-value-name input-blur">Blur</div>
+                        <input type="text" class="input-value-value">
+                    </div>
+                    <div class="input-value-box">
+                        <div class="input-value-name input-spread-radius">Spread Radius</div>
+                        <input type="text" class="input-value-value">
+                    </div>
+                    <div class="input-value-box">
+                        <div class="input-value-name input-shadow-color">Color</div>
+                        <input type="text" class="input-value-value">
+                    </div>
+                    <button class="input-value-submit text-shadow-submit">
+                        <svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.9184 1.93174L6.49473 16.0317L0.800537 9.56924L2.26032 7.91249L6.49473 12.7065L17.4586 0.274994L18.9184 1.93174Z" fill="white" fill-opacity="1"/>
+                            </svg>
+                    </button>
+                </div>
+                <div id="screen-background">
+                    <span class="options-header">Screen Background</span>
+                    <div class="input-value-box">
+                        <div class="input-value-name">c1</div>
+                        <input type="text" class="input-value-value" id="input-color1" >
+                    </div>
+                    <div class="input-value-box">
+                        <div class="input-value-name">c2</div>
+                        <input type="text" class="input-value-value" id="input-color2" >
+                    </div>
+                    <div class="input-value-box">
+                        <div class="input-value-name input-angle"><svg width="20" height="20" viewBox="0 0 25 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M15.5195 22.9858H24.4914V25.5513H0.890825L15.9825 0.818519L17.7679 2.22707L10.8672 13.5435L10.6021 13.9783L11.0416 14.2354C13.4085 15.6203 15.0666 18.4101 15.0666 21.6658C15.0666 21.9587 15.0654 22.1819 15.0271 22.399L14.9237 22.9858H15.5195ZM5.57365 22.2254L5.10962 22.9858H6.00046H12.3622H12.7583L12.8489 22.6002C12.9252 22.2758 12.9251 21.9584 12.925 21.6877L12.925 21.6658C12.925 19.2466 11.6368 17.1648 9.71003 16.2901L9.30706 16.1071L9.07654 16.4849L5.57365 22.2254Z" fill="#aeaeae" stroke="#303030"/>
+                            </svg>
+                            </div>
+                        <input type="text" class="input-value-value" id="input-angle" >
+                    </div>
+                    <button class="input-value-submit background-submit" id="set-screen-color">
+                        <svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.9184 1.93174L6.49473 16.0317L0.800537 9.56924L2.26032 7.91249L6.49473 12.7065L17.4586 0.274994L18.9184 1.93174Z" fill="white" fill-opacity="1"/>
+                            </svg>
+                    </button>
+                </div>
+                <div id="replace-content">
+                    <span class="options-header">Replace Text</span>
+                    <div class="input-value-box" >
+                        <div class="input-value-name find-input">Find</div>
+                        <input type="text" class="input-value-value" id="replace-find">
+                    </div>
+                    <div class="input-value-box">
+                        <div class="input-value-name replace-input">Replace</div>
+                        <input type="text" class="input-value-value"  id="replace-replace">
+                    </div>
+                    <button class="input-value-do replace-submit" id="replaceTo">
+                        <svg width="19" height="17" viewBox="0 0 19 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M18.9184 1.93174L6.49473 16.0317L0.800537 9.56924L2.26032 7.91249L6.49473 12.7065L17.4586 0.274994L18.9184 1.93174Z" fill="white" fill-opacity="1"/>
+                            </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="slideshow-container" id="slide-container" >  
+    </div>
+
+    <button id="show-main-container">
+        <svg width="50" height="50" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="40" cy="40" r="40" fill="#171717" fill-opacity="0.5"/>
+            <circle cx="40" cy="40" r="39.5" stroke="white" stroke-opacity="0.5"/>
+            <path d="M41.9239 40.3508L42.2692 40L41.9239 39.6492L31.7017 29.2667L34.2162 26.7127L47.2983 40L34.2162 53.2873L31.7017 50.7333L41.9239 40.3508Z" fill="white" stroke="#19172A"/>
+            </svg>            
+    </button>
+    <script>
+        let play_btn = document.getElementById("lyrics-play");
+        let lyrics = document.getElementById("lyrics-input");
+        let screen = document.getElementById("slide-container");
+        let screen_text = document.getElementsByClassName("mySlides");
+
+        let main_container = document.getElementById("main-container");
+        let show_main_container = document.getElementById("show-main-container");
+        let font_size = document.getElementById("text-size");
+        let font_weight = document.getElementById("text-weight");
+        let font_color = document.getElementById("text-color");
+        let font_family = document.getElementById("font-family");
+
+        
+
+        let set_screen_color = document.getElementById("set-screen-color");
+        function sleep(milliseconds) {  
+            return new Promise(resolve => setTimeout(resolve, milliseconds));  
+        } 
+
+        font_size.oninput = function(){
+            console.log(font_size.value);
+            console.log(screen_text);
+            for( i in screen_text){
+                screen_text[i].style.fontSize=font_size.value;
+            }
+            // screen_text.style.fontSize = font_size.value;
+        }
+        font_weight.oninput = function(){
+            // console.log(font_size.value);
+            // console.log(screen_text);
+            for( i in screen_text){
+                screen_text[i].style.fontWeight=font_weight.value;
+            }
+        }
+        font_color.oninput = function(){
+            // console.log(font_size.value);
+            // console.log(screen_text);
+            for( i in screen_text){
+                screen_text[i].style.color=font_color.value;
+            }
+        }
+        font_family.oninput = function(){
+            // console.log(font_size.value);
+            // console.log(screen_text);
+            for( i in screen_text){
+                screen_text[i].style.fontFamily=font_family.value;
+            }
+        }
+        
+        show_main_container.addEventListener("click",async function(){
+            main_container.style.display = "flex";
+            await sleep(100);  
+            main_container.style.bottom ="0px";
+            main_container.style.transition = 'all 0.3s ease';
+
+        });
+        
+
+        lyrics.oninput= function(){
+            
+            while (screen.firstChild) {
+                screen.firstChild.remove()
+            }
+            // screen.replaceChildren();
+            let textSplitted = lyrics.value.split('\n\n');
+
+            for(i in textSplitted){
+                console.log('i is '+ textSplitted[i]);
+                // localStorage.setItem('textValue', textSplitted[i]);
+                // Create a text node:
+                const textnode = document.createElement("pre");
+                textnode.className ="mySlides fade";
+                textnode.innerHTML = textSplitted[i];
+                textnode.setAttribute('contenteditable','true');
+                // Append the text node to the "li" node:
+                screen.appendChild(textnode);
+                i++;
+            }
+        }
+        
+        play_btn.addEventListener("click", async function(){
+            show_main_container.style.display = "inline-block";
+            main_container.style.bottom ="-2000px";
+            await sleep(100);
+            main_container.style.transition = 'all 0.3s ease';
+            screen.style.display = "flex";
+            await sleep(1000);
+            main_container.style.display = "none";
+        });
+
+        document.addEventListener('keydown',(e)=>{
+                if(e.keyCode === 37){
+                    plusSlides(-1);
+                }else if(e.keyCode === 39){
+                    plusSlides(1);
+                }
+        });
+
+        let color_1 = document.getElementById("input-color1");
+        let color_2 = document.getElementById("input-color2");
+        let angle = document.getElementById("input-angle");
+
+        // function cbg() {
+        //     console.log("screen: ",screen);
+        //     console.log("screen-sytle=backround: ",screen.style.background);
+        //     screen.style.background = `linear-gradient(${angle.value},  ${color_1.value}, ${color_2.value})`;
+        // }
+        color_1.oninput =  function(){
+            console.log("screen: ",screen);
+            console.log("screen-sytle=backround: ",screen.style.background);
+            screen.style.background = `linear-gradient(${angle.value},  ${color_1.value}, ${color_2.value})`;
+        };
+        color_2.oninput =  function(){
+            console.log("screen: ",screen);
+            console.log("screen-sytle=backround: ",screen.style.background);
+            screen.style.background = `linear-gradient(${angle.value},  ${color_1.value}, ${color_2.value})`;
+        };
+        angle.oninput =  function(){
+            console.log("screen: ",screen);
+            console.log("screen-sytle=backround: ",screen.style.background);
+            screen.style.background = `linear-gradient(${angle.value},  ${color_1.value}, ${color_2.value})`;
+        };
+        
+        let replace_btn = document.getElementById("replaceTo");
+        
+        replace_btn.addEventListener("click",  function(){
+            let find = document.getElementById("replace-find").value;
+            console.log("find: ",find);
+            let replaceTo = document.getElementById("replace-replace").value;
+            console.log("replaceTo: ",replaceTo);
+            let content = lyrics.value;
+            let modifiedContent = content.replaceAll(find,replaceTo);
+            lyrics.value = modifiedContent;
+            console.log("textContent After: ",modifiedContent);
+            while (screen.firstChild) {
+                screen.firstChild.remove()
+            }
+            // screen.replaceChildren();
+            let textSplitted = lyrics.value.split('\n\n');
+
+            for(i in textSplitted){
+                console.log('i is '+ textSplitted[i]);
+                // localStorage.setItem('textValue', textSplitted[i]);
+                // Create a text node:
+                const textnode = document.createElement("pre");
+                textnode.className ="mySlides fade";
+                textnode.innerHTML = textSplitted[i];
+                textnode.setAttribute('contenteditable','true');
+                // Append the text node to the "li" node:
+                screen.appendChild(textnode);
+                i++;
+            }
+        });
+        
+        
+        
+
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,340 @@
+:root{
+    --screen-bg: #0e0e0e;
+    --greenV1: #00ff7f;
+    --grayV1: #171717;
+    --greenV2: #009042;
+    --container-border: rgba(255,255,255,0.25);
+    --grayV2: rgba(23,23,23,0.93);
+    --textV1: #aeaeae;
+}
+
+.hidden{
+    display: none;
+}
+
+#copy-icon{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    /* padding: 10px; */
+}
+
+::-webkit-scrollbar {
+    width:8px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    /* box-shadow: inset 0 0 5px grey;  */
+    border-radius: 10px;
+    margin: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: var(--container-border); 
+    border-radius: 10px;
+  }
+
+
+*{
+    margin:  0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Anek Telugu', 'monospace';
+}
+
+body{
+    background: #0e0e0e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#main-container{
+    top: -40px;
+    position: absolute;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* border: 1px solid red; */
+    padding: 100px 200px;
+    gap: 20px;
+    /* transition: 5s ease-in-out; */
+    z-index: 999;
+}
+
+#left-container{
+    width: 40%;
+    height: 80vh;
+    border: 1px soild rgb(0, 106, 255);
+}
+#right-container{
+    width: 60%;
+    height: 80vh;
+    border: 1px soild rgb(255, 0, 187);
+}
+#lyrics-content{
+    position: relative;
+    background-color: var(--grayV1);
+    border: 1px solid var(--container-border);
+    border-radius: 8px;
+    height: 93%;
+}
+#settings-content{
+    background-color: var(--grayV1);
+    border: 1px solid var(--container-border);
+    border-radius: 8px;
+    height: 93%;
+}
+
+.content-header{
+    font-weight: bold;
+    font-size: 20px;
+    letter-spacing: 10px;
+    color: var(--greenV1);
+}
+
+
+#lyrics-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+#add-pallavi{
+    background-color: var(--greenV2);
+    width: 120px;
+    display: flex;
+    padding: 8px;
+    border-radius: 4px;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    border: none;
+}
+
+#add-pallavi p{
+    font-size: 18px;
+    font-weight: 400;
+    color: white;
+    margin-top: 5px;
+}
+
+#lyrics-input{
+    width: 100%;
+    height: 100%;
+    border:1px solid transparent;
+    background-color: transparent;
+    border-radius: 8px;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--textV1);
+    font-size: 20px;
+    resize: none;
+}
+
+#lyrics-input:focus{
+    outline: var(--greenV1) solid  0.1px;
+}
+
+#lyrics-play{
+    background-color: transparent;
+    border: none;
+    position: relative;
+    top: -30px;
+    left: -25px;
+}
+
+#lyrics-play:hover circle,#lyrics-play:hover path{
+    fill-opacity:1;
+    transition: 0.5s;
+    
+}
+
+
+#settings-top{
+    height: 70px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#settings-top .content-header{
+    color: var(--textV1);
+}
+
+#settings-content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.options-header{
+    color: var(--textV1);
+    width: 100%;
+    text-align: center;
+    margin: auto;
+    display: inline-block;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.input-value-box{
+    width: 150px;
+    border-radius: 5px;
+    border: 1px solid var(--container-border);
+    background-color: rgba(81,81,81,0.25);
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+.input-value-name{
+
+    font-size: 15px;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(81,81,81,0.25);
+    color: var(--textV1);
+}
+
+.input-value-value{
+    width: 100%;
+    height: 50%;
+    outline: none;
+    background-color: transparent;
+    color: var(--textV1);
+    border: none;
+    padding: 10px;
+    text-align: center;
+}
+
+.input-value-value:focus {
+    color: var(--greenV1);
+    
+}
+
+.input-value-submit,.input-value-do{
+    width: 100%;
+    height: 40px;
+    background-color: #009042;
+    opacity: 0.5;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+    
+}
+.input-value-submit svg, .input-value-do svg{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.input-value-submit:hover, 
+.input-value-do:hover
+{
+    opacity: 1;
+}
+
+
+
+/* screen css */
+.slideshow-container{
+    display: none;
+    width: 100%;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+#show-main-container{
+    /* display: none; */
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    z-index: 5;
+    left: 0px;
+    opacity: 0;
+    /* border: 1px solid red; */
+    height: 90vh;
+    width: 100px;
+}
+
+.input-value-submit{
+    display: none;
+}
+
+#show-main-container:hover{
+    /* left: 30px; */
+    opacity: 1;
+    width: 150px;
+}
+
+.mySlides{
+    font-size: 80px;
+    font-weight: bold;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    text-shadow: rgba(0, 0, 0, 0.3) -7px 7px 15px;
+}
+
+.mySlides {display: none;
+    flex-direction: column;
+}
+
+#slide-container{
+    background: linear-gradient(to right, #0e0e0e, #0e0e0e);
+    width: 100%;
+    min-height: 100vh;
+}
+
+
+/* Slideshow container */
+.slideshow-container {
+    position: relative;
+}
+
+/* Next & previous buttons */
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: rgb(0, 98, 255);
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+}
+
+
+/* Fading animation */
+.fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+}
+
+@keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+}
